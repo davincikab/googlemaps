@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWKf4vdhuBiiZaJrHs3IVqRUSdwqQPnl4&callback=initMap"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    
+    <style>
+      .gm-style img {
+          max-width: none;
+          display: none;
+      }
+
+      map {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+        var pharmacies = [
+            {
+                "Name": "Farmácia Aeroporto",
+                "google_link": "https://goo.gl/maps/hw2hf5C52wukemKr8",
+                "lat": 38.769052,
+                "lng": -9.1308041,
+                "description": "aeroporto.png"
+            },
+            {
+                "Name": "Farmacia Alegro",
+                "google_link": "https://goo.gl/maps/WcuEpxA4UEmuy1pm8",
+                "lat": 38.727745,
+                "lng": -9.2203583,
+                "description": "alegro.png"
+            },
+            {
+                "Name": "Farmácia Central",
+                "google_link": "https://goo.gl/maps/Xqrnczo8eM5zKfaHA",
+                "lat": 38.8087342,
+                "lng": -9.1022272,
+                "description": "central.png"
+            },
+            {
+                "Name": "Farmácia Colombo",
+                "google_link": "https://goo.gl/maps/4ra3vtoFcuhp2hNB8",
+                "lat": 38.7546707,
+                "lng": -9.1907003,
+                "description": "colombo.png"
+            },
+            {
+                "Name": "Farmácia Cordeiro",
+                "google_link": "https://g.page/FarmaciaCordeiroCascais?share",
+                "lat": 38.6983221,
+                "lng": -9.4216824,
+                "description": "cordeiro.png"
+            },
+            {
+                "Name": "Farmácia Fontainhas",
+                "google_link": "https://goo.gl/maps/JM1DPjuu9YMxVhRR7",
+                "lat": 38.708508,
+                "lng": -9.4220042,
+                "description": "fontainhas.png"
+            },
+            {
+                "Name": "Farmácia Freitas",
+                "google_link": "https://goo.gl/maps/BRHrQfCTuibirayAA",
+                "lat": 39.4131396,
+                "lng": -9.1391776,
+                "description": "freitas.png"
+            },
+            {
+                "Name": "Farmácia Godinho",
+                "google_link": "https://goo.gl/maps/Rs1LUT69AGakYQjb9",
+                "lat": 38.6926874,
+                "lng": -9.3138857,
+                "description": "godinho.png"
+            },
+            {
+                "Name": "Farmácia Parque",
+                "google_link": "https://g.page/FarmaciaParquedoEstoril?share",
+                "lat": 38.704014,
+                "lng": -9.397254,
+                "description": "parque.png"
+            },
+            {
+                "Name": "Farmácia Salir",
+                "google_link": "https://goo.gl/maps/FiHsBptKarvyU3pm6",
+                "lat": 39.4298277,
+                "lng": -9.0976831,
+                "description": "salir.png"
+            },
+            {
+                "Name": "Farmácia Sáo Joáo",
+                "google_link": "https://g.page/FarmaciaSaoJoaodoEstoril?share",
+                "lat": 38.7019254,
+                "lng": -9.3877334,
+                "description": "saojoao.png"
+            },
+            {
+                "Name": "Farmácia Veritas",
+                "google_link": "https://goo.gl/maps/TE1VC1oULxQFJarYA",
+                "lat": 38.7052294,
+                "lng": -9.3032895,
+                "description": "veritas.png"
+            }
+        ];
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: {lat: 38.7052294, lng: -9.3032895}
+            });
+
+            var image = 'pharmacy-icon.png';
+
+            for (const pharmacy of pharmacies) {
+                // create a new marker
+                let maker = new google.maps.Marker({
+                    position: {lat: pharmacy.lat, lng: pharmacy.lng},
+                    map: map,
+                    icon: image
+                });
+
+
+                // add a event listener
+                marker.addEvent
+            }
+        
+        function clickEventListener(e) {
+            // create a 20 km circle layer
+            
+            // create a 10 km circle layer
+        }
+           
+        }
+    </script>
+  </body>
+</html>

@@ -1,13 +1,13 @@
-Name,google_link,lat,lng,description
-Farmácia Aeroporto , https://goo.gl/maps/hw2hf5C52wukemKr8,38.769052,-9.1308041,aeroporto.png
-Farmacia Alegro , https://goo.gl/maps/WcuEpxA4UEmuy1pm8 ,38.727745,-9.2203583,alegro.png
-Farmácia Central , https://goo.gl/maps/Xqrnczo8eM5zKfaHA ,38.8087342,-9.1022272,central.png
-Farmácia Colombo , https://goo.gl/maps/4ra3vtoFcuhp2hNB8 ,38.7546707,-9.1907003,colombo.png
-Farmácia Cordeiro , https://g.page/FarmaciaCordeiroCascais?share ,38.6983221,-9.4216824,cordeiro.png
-Farmácia Fontainhas , https://goo.gl/maps/JM1DPjuu9YMxVhRR7 ,38.708508,-9.4220042,fontainhas.png
-Farmácia Freitas , https://goo.gl/maps/BRHrQfCTuibirayAA,39.4131396,-9.1391776,freitas.png
-Farmácia Godinho , https://goo.gl/maps/Rs1LUT69AGakYQjb9 ,38.6926874,-9.3138857,godinho.png
-Farmácia Parque , https://g.page/FarmaciaParquedoEstoril?share,38.704014,-9.397254,parque.png
-Farmácia Salir , https://goo.gl/maps/FiHsBptKarvyU3pm6,39.4298277,-9.0976831,salir.png
-Farmácia São João , https://g.page/FarmaciaSaoJoaodoEstoril?share,38.7019254,-9.3877334,saojoao.png
-Farmácia Veritas , https://goo.gl/maps/TE1VC1oULxQFJarYA,38.7052294,-9.3032895,veritas.png
+Name,google_link,lat,lng,description,email,tel,address
+Farmácia Aeroporto , https://goo.gl/maps/hw2hf5C52wukemKr8,38.769052,-9.1308041,aeroporto.png,farmacia,214828040,
+Farmacia Alegro , https://goo.gl/maps/WcuEpxA4UEmuy1pm8 ,38.727745,-9.2203583,alegro.png,,214828040,
+Farmácia Central , https://goo.gl/maps/Xqrnczo8eM5zKfaHA ,38.8087342,-9.1022272,central.png,,214828040,
+Farmácia Colombo , https://goo.gl/maps/4ra3vtoFcuhp2hNB8 ,38.7546707,-9.1907003,colombo.png,,214828040,
+Farmácia Cordeiro , https://g.page/FarmaciaCordeiroCascais?share ,38.6983221,-9.4216824,cordeiro.png,,214828040,
+Farmácia Fontainhas , https://goo.gl/maps/JM1DPjuu9YMxVhRR7 ,38.708508,-9.4220042,fontainhas.png,,214828040,
+Farmácia Freitas , https://goo.gl/maps/BRHrQfCTuibirayAA,39.4131396,-9.1391776,freitas.png,,214828040,
+Farmácia Godinho , https://goo.gl/maps/Rs1LUT69AGakYQjb9 ,38.6926874,-9.3138857,godinho.png,,214828040,
+Farmácia Parque , https://g.page/FarmaciaParquedoEstoril?share,38.704014,-9.397254,parque.png,,214828040,
+Farmácia Salir , https://goo.gl/maps/FiHsBptKarvyU3pm6,39.4298277,-9.0976831,salir.png,,214828040,
+Farmácia São João , https://g.page/FarmaciaSaoJoaodoEstoril?share,38.7019254,-9.3877334,saojoao.png,,214828040,
+Farmácia Veritas , https://goo.gl/maps/TE1VC1oULxQFJarYA,38.7052294,-9.3032895,veritas.png,,214828040,
