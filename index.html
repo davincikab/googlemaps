@@ -241,9 +241,9 @@
                         fontSize:"12px",
                         fontWeight:"800"
                     },
-                    map: map,
                     icon:iconOne,
-                    zIndex:-1
+                    zIndex:-1,
+                    visible:false
                 });
             });
 
@@ -288,11 +288,18 @@
         
         map.addListener('click', function(e) {
             console.log(e.latLng);
+            // if(circle10 && circle20) { 
+                // circle10.setVisible(false);
+                // circle20.setVisible(false);
+            // }
+
         });
         
         function clickEventListener(pharmacy) {
 
             if(circle10 && circle20) {
+                // circle10.setVisible(true);
+                // circle20.setVisible(true);
                 circle10.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
                 circle20.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
             }else {
@@ -334,7 +341,7 @@
                 strokeOpacity: 0.8,
                 strokeWeight: 0.5,
                 fillColor: color,
-                fillOpacity: 0.65,
+                fillOpacity: 0.4,
                 map: map,
                 center:{lat: pharmacy.lat, lng: pharmacy.lng},
                 radius: radius,
