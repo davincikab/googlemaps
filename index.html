@@ -4,6 +4,7 @@
     <title>Simple Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWKf4vdhuBiiZaJrHs3IVqRUSdwqQPnl4&callback=initMap"></script>
     
     <style>
@@ -19,6 +20,37 @@
       #map img {
           /* height:30px !important; */
           /* width:30px !important; */
+      }
+
+      .title {
+        text-align: center;
+        font-weight: 900;
+        margin: 0;
+        padding: 0.2em;
+        background-color: antiquewhite;
+        color: #383838;
+      }
+
+      .fa {
+          margin-right: 1em;
+          color:#C61D49;
+          font-size: 1.1em;
+      }
+
+      .content > p {
+        margin: 0.8em 0 0 1.1em;
+        display: flex;
+        align-items: center;
+      }
+
+      .gm-style .gm-style-iw-c {
+        padding: 0 !important;
+        max-width: 270px !important;
+      }
+
+      button {
+          background-color: #FAEBD7 !important;
+          opacity: 0.9 !important;
       }
     </style>
   </head>
@@ -225,7 +257,12 @@
 
 
             // create a feature collection
-            let contentString = "<div class='content'><img src='images/"+pharmacy.description+"'></div>";
+            let contentString = "<div class='content'>"+
+            "<h3 class='title'>"+pharmacy.Name+"</h3>" +
+            "<p > <i class='fa fa-map-marker'></i>"+pharmacy.address+"</p>"+
+            "<p> <i class='fa fa-phone'></i>"+pharmacy.tel+"</p>"+
+            "<p> <i class='fa fa-envelope'></i>"+pharmacy.email+"</p>"+
+            "</div>";
 
             // add an info window
 
