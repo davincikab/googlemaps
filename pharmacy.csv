@@ -1,13 +1,13 @@
 Name,google_link,lat,lng,description,email,tel,address
-Farmácia Aeroporto , https://goo.gl/maps/hw2hf5C52wukemKr8,38.769052,-9.1308041,aeroporto.png,farmacia,214828040,
-Farmacia Alegro , https://goo.gl/maps/WcuEpxA4UEmuy1pm8 ,38.727745,-9.2203583,alegro.png,,214828040,
-Farmácia Central , https://goo.gl/maps/Xqrnczo8eM5zKfaHA ,38.8087342,-9.1022272,central.png,,214828040,
-Farmácia Colombo , https://goo.gl/maps/4ra3vtoFcuhp2hNB8 ,38.7546707,-9.1907003,colombo.png,,214828040,
-Farmácia Cordeiro , https://g.page/FarmaciaCordeiroCascais?share ,38.6983221,-9.4216824,cordeiro.png,,214828040,
-Farmácia Fontainhas , https://goo.gl/maps/JM1DPjuu9YMxVhRR7 ,38.708508,-9.4220042,fontainhas.png,,214828040,
-Farmácia Freitas , https://goo.gl/maps/BRHrQfCTuibirayAA,39.4131396,-9.1391776,freitas.png,,214828040,
-Farmácia Godinho , https://goo.gl/maps/Rs1LUT69AGakYQjb9 ,38.6926874,-9.3138857,godinho.png,,214828040,
-Farmácia Parque , https://g.page/FarmaciaParquedoEstoril?share,38.704014,-9.397254,parque.png,,214828040,
-Farmácia Salir , https://goo.gl/maps/FiHsBptKarvyU3pm6,39.4298277,-9.0976831,salir.png,,214828040,
-Farmácia São João , https://g.page/FarmaciaSaoJoaodoEstoril?share,38.7019254,-9.3877334,saojoao.png,,214828040,
-Farmácia Veritas , https://goo.gl/maps/TE1VC1oULxQFJarYA,38.7052294,-9.3032895,veritas.png,,214828040,
+Farmácia Aeroporto , https://goo.gl/maps/hw2hf5C52wukemKr8,38.769052,-9.1308041,aeroporto.png,farmaciaaeroporto@grupopraxis.pt,218413582,"Alameda of the Portuguese Communites, Lisbon Airport 1700-001 Lisbon"
+Farmacia Alegro , https://goo.gl/maps/WcuEpxA4UEmuy1pm8 ,38.727745,-9.2203583,alegro.png,farmaciaalegro@grupopraxis.pt,214159898,"C.C Alegro, Loja 072, Avenida dos Cavaleiros no. 60 2790 Carnaxide"
+Farmácia Central , https://goo.gl/maps/Xqrnczo8eM5zKfaHA ,38.8087342,-9.1022272,central.png,farmaciacentral@grupopraxis.pt,219948620,"Praceta Jose Regio, BI C, Lj 5, Bobdela LRS"
+Farmácia Colombo , https://goo.gl/maps/4ra3vtoFcuhp2hNB8 ,38.7546707,-9.1907003,colombo.png,farmaciacolombo@grupopraxis.pt,217151301,"Avenida Lusiada, Centro Colombo, Lojas 77/78/79 1500 - 392 Lisboa"
+Farmácia Cordeiro , https://g.page/FarmaciaCordeiroCascais?share ,38.6983221,-9.4216824,cordeiro.png,farmaciacordeiro@grupopraxis.pt,214826218,"Largo Cidadw de Vitoria 7, 2754-510 Cascais"
+Farmácia Fontainhas , https://goo.gl/maps/JM1DPjuu9YMxVhRR7 ,38.708508,-9.4220042,fontainhas.png,farmaciafontainhas@grupopraxis.pt,214828040,"Rua de Alvide, no 188, Fontainhas 2759 - 288 Cascais"
+Farmácia Freitas , https://goo.gl/maps/BRHrQfCTuibirayAA,39.4131396,-9.1391776,freitas.png,farmaciafreitas@grupopraxis.pt,262839450,Avenida Engenheiro Marcelo Morgado no1 e 3 2500 - 919 Caldas da Rainha
+Farmácia Godinho , https://goo.gl/maps/Rs1LUT69AGakYQjb9 ,38.6926874,-9.3138857,godinho.png,farmaciagodinho@grupopraxis.pt,214430090,"Rua Candido dos Reis, no 98, 2780-211 Oeiras"
+Farmácia Parque , https://g.page/FarmaciaParquedoEstoril?share,38.704014,-9.397254,parque.png,farmaciaparque@grupopraxis.pt,214667031,"Arcadas do Parque, no 15 e 16 2765 - 266 Estoril"
+Farmácia Salir , https://goo.gl/maps/FiHsBptKarvyU3pm6,39.4298277,-9.0976831,salir.png,farmaciasalir@grupopraxis.pt,262844376,"Rua de Santo Antonio, no 2 2500-637 SALIR DE MATOS"
+Farmácia São João , https://g.page/FarmaciaSaoJoaodoEstoril?share,38.7019254,-9.3877334,saojoao.png,farmaciasaojoao@grupopraxis.pt,214681186,"Quinta da Carreira, Lote 29, S. J. do Estoril"
+Farmácia Veritas , https://goo.gl/maps/TE1VC1oULxQFJarYA,38.7052294,-9.3032895,veritas.png,farmaciaveritas@grupopraxis.pt,214681186,"Centro Comercial Oerias Praque, Loja, 1007 2770 - 219 Paco de Arcos"
