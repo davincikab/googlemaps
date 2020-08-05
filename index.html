@@ -212,12 +212,14 @@
         var map;
         var infowindow;
         var features;
-        var circle10, circle20;
+        var circle12, circle58;
+        var label12, label58;
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 9,
                 minZoom:9,
+                maxZoom:12,
                 center: {lat: 39.093993, lng: -9.143646}
             }); 
 
@@ -288,24 +290,74 @@
         
         map.addListener('click', function(e) {
             console.log(e.latLng);
-            // if(circle10 && circle20) { 
-                // circle10.setVisible(false);
-                // circle20.setVisible(false);
+            // if(circle12 && circle58) { 
+                // circle12.setVisible(false);
+                // circle58.setVisible(false);
             // }
 
+        });
+
+        map.addListener('zoom_changed', function(e) {
+            if(label58) {
+                let zoom = map.getZoom();
+                console.log(zoom);
+                let icon = {
+                    ...iconOne,
+                    origin: new google.maps.Point(0,0), // origin
+                    anchor: new google.maps.Point(150 * (zoom/4),150* (zoom/4)) // anchor
+                };
+
+                label58.setIcon(icon)
+            }
         });
         
         function clickEventListener(pharmacy) {
 
-            if(circle10 && circle20) {
-                // circle10.setVisible(true);
-                // circle20.setVisible(true);
-                circle10.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
-                circle20.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
-            }else {
-                circle20 = new google.maps.Circle(getCircleOptions(25000, pharmacy,  '#c67388'));
-                circle10 = new google.maps.Circle(getCircleOptions(12500, pharmacy,'#7e98b7' ));
+            if(circle12 && circle58) {
+                // circle12.setVisible(true);
+                // circle58.setVisible(true);
+                circle12.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
+                circle58.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
 
+                label12.setPosition({lat: pharmacy.lat, lng: pharmacy.lng});
+                label58.setPosition({lat: pharmacy.lat, lng: pharmacy.lng});
+            }else {
+                circle58 = new google.maps.Circle(getCircleOptions(58000, pharmacy,  '#c67388'));
+                circle12 = new google.maps.Circle(getCircleOptions(12500, pharmacy,'#7e98b7' ));
+
+
+                // add the labels
+                label12 = new google.maps.Marker({
+                    position: {lat: pharmacy.lat, lng: pharmacy.lng},
+                    label: {
+                        color:"#484849",
+                        text:"1 hour delivery",
+                        fontSize:"12px",
+                        fontWeight:"800"
+                    },
+                    map:map,
+                    icon:{
+                        ...iconOne,
+                        origin: new google.maps.Point(0,0), // origin
+                        anchor: new google.maps.Point(-25,-16.5) // anchor
+                    }
+                });
+
+                label58 = new google.maps.Marker({
+                    position: {lat: pharmacy.lat, lng: pharmacy.lng},
+                    label: {
+                        color:"#484849",
+                        text:"1 day delivery",
+                        fontSize:"12px",
+                        fontWeight:"800"
+                    },
+                    map:map,
+                    icon:{
+                        ...iconOne,
+                        origin: new google.maps.Point(0,0), // origin
+                        anchor: new google.maps.Point(150,150) // anchor
+                    }
+                });
             }
 
             
