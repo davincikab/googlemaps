@@ -300,11 +300,15 @@
         map.addListener('zoom_changed', function(e) {
             if(label58) {
                 let zoom = map.getZoom();
-                console.log(zoom);
+                let anchor = new google.maps.Point(150 * (zoom/4.5),150* (zoom/4.5));
+                if (zoom == 9) {
+                    anchor = new google.maps.Point(150 ,150);
+                }
+                
                 let icon = {
                     ...iconOne,
                     origin: new google.maps.Point(0,0), // origin
-                    anchor: new google.maps.Point(150 * (zoom/4),150* (zoom/4)) // anchor
+                    anchor: anchor// anchor
                 };
 
                 label58.setIcon(icon)
