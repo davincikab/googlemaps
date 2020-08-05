@@ -230,6 +230,8 @@
                     label: {
                         color:"#484849",
                         text:area.properties.NAME_2,
+                        fontSize:"12px",
+                        fontWeight:"800"
                     },
                     map: map,
                     icon:iconOne,
@@ -292,19 +294,20 @@
         function clickEventListener(pharmacy) {
             // create a 20 km circle layer
             var options = {
-                    steps:10000
+                steps:10000,
+                units: "kilometers"
             };
 
             var buffer_twenty = turf.buffer(
                 turf.point([pharmacy.lng, pharmacy.lat]),
-                20,
+                20.8,
                 options
             );
 
             // create a 10 km circle layer
             var buffer_ten = turf.buffer(
                 turf.point([pharmacy.lng, pharmacy.lat]),
-                10,
+                10.8,
                 options
             );
 
