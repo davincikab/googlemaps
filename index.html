@@ -250,7 +250,7 @@
             var mapStyle = function (feature) {
                 let fillColor = '#FACB58';
                 let zIndex = 1;
-                
+
                 return {
                     strokeWeight: 0.5,
                     strokeColor: '#fff',
@@ -296,8 +296,8 @@
                 circle10.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
                 circle20.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
             }else {
-                circle20 = new google.maps.Circle(getCircleOptions(20000, pharmacy,  '#c67388'));
-                circle10 = new google.maps.Circle(getCircleOptions(10000, pharmacy,'#427793' ));
+                circle20 = new google.maps.Circle(getCircleOptions(25000, pharmacy,  '#c67388'));
+                circle10 = new google.maps.Circle(getCircleOptions(12500, pharmacy,'#427793' ));
 
             }
 
