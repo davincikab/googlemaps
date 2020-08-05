@@ -60,7 +60,7 @@
     <script>
         var pharmacies = [
             {
-                "Name": "Farmácia Aeroporto",
+                "Name": "Farmãcia Aeroporto",
                 "google_link": "https://goo.gl/maps/hw2hf5C52wukemKr8",
                 "lat": 38.769052,
                 "lng": -9.1308041,
@@ -80,7 +80,7 @@
                 "address": "C.C Alegro, Loja 072, Avenida dos Cavaleiros no. 60 2790 Carnaxide"
             },
             {
-                "Name": "Farmácia Central",
+                "Name": "Farmãcia Central",
                 "google_link": "https://goo.gl/maps/Xqrnczo8eM5zKfaHA",
                 "lat": 38.8087342,
                 "lng": -9.1022272,
@@ -90,7 +90,7 @@
                 "address": "Praceta Jose Regio, BI C, Lj 5, Bobdela LRS"
             },
             {
-                "Name": "Farmácia Colombo",
+                "Name": "Farmãcia Colombo",
                 "google_link": "https://goo.gl/maps/4ra3vtoFcuhp2hNB8",
                 "lat": 38.7546707,
                 "lng": -9.1907003,
@@ -100,7 +100,7 @@
                 "address": "Avenida Lusiada, Centro Colombo, Lojas 77/78/79 1500 - 392 Lisboa"
             },
             {
-                "Name": "Farmácia Cordeiro",
+                "Name": "Farmãcia Cordeiro",
                 "google_link": "https://g.page/FarmaciaCordeiroCascais?share",
                 "lat": 38.6983221,
                 "lng": -9.4216824,
@@ -110,7 +110,7 @@
                 "address": "Largo Cidadw de Vitoria 7, 2754-510 Cascais"
             },
             {
-                "Name": "Farmácia Fontainhas",
+                "Name": "Farmãcia Fontainhas",
                 "google_link": "https://goo.gl/maps/JM1DPjuu9YMxVhRR7",
                 "lat": 38.708508,
                 "lng": -9.4220042,
@@ -120,7 +120,7 @@
                 "address": "Rua de Alvide, no 188, Fontainhas 2759 - 288 Cascais"
             },
             {
-                "Name": "Farmácia Freitas",
+                "Name": "Farmãcia Freitas",
                 "google_link": "https://goo.gl/maps/BRHrQfCTuibirayAA",
                 "lat": 39.4131396,
                 "lng": -9.1391776,
@@ -130,7 +130,7 @@
                 "address": "Avenida Engenheiro Marcelo Morgado no1 e 3 2500 - 919 Caldas da Rainha"
             },
             {
-                "Name": "Farmácia Godinho",
+                "Name": "Farmãcia Godinho",
                 "google_link": "https://goo.gl/maps/Rs1LUT69AGakYQjb9",
                 "lat": 38.6926874,
                 "lng": -9.3138857,
@@ -140,7 +140,7 @@
                 "address": "Rua Candido dos Reis, no 98, 2780-211 Oeiras"
             },
             {
-                "Name": "Farmácia Parque",
+                "Name": "Farmãcia Parque",
                 "google_link": "https://g.page/FarmaciaParquedoEstoril?share",
                 "lat": 38.704014,
                 "lng": -9.397254,
@@ -150,7 +150,7 @@
                 "address": "Arcadas do Parque, no 15 e 16 2765 - 266 Estoril"
             },
             {
-                "Name": "Farmácia Salir",
+                "Name": "Farmãcia Salir",
                 "google_link": "https://goo.gl/maps/FiHsBptKarvyU3pm6",
                 "lat": 39.4298277,
                 "lng": -9.0976831,
@@ -160,7 +160,7 @@
                 "address": "Rua de Santo Antonio, no 2 2500-637 SALIR DE MATOS"
             },
             {
-                "Name": "Farmácia Sáo Joáo",
+                "Name": "Farmãcia São João",
                 "google_link": "https://g.page/FarmaciaSaoJoaodoEstoril?share",
                 "lat": 38.7019254,
                 "lng": -9.3877334,
@@ -170,7 +170,7 @@
                 "address": "Quinta da Carreira, Lote 29, S. J. do Estoril"
             },
             {
-                "Name": "Farmácia Veritas",
+                "Name": "Farmãcia Veritas",
                 "google_link": "https://goo.gl/maps/TE1VC1oULxQFJarYA",
                 "lat": 38.7052294,
                 "lng": -9.3032895,
@@ -178,6 +178,16 @@
                 "email": "farmaciaveritas@grupopraxis.pt",
                 "tel": 214681186,
                 "address": "Centro Comercial Oerias Praque, Loja, 1007 2770 - 219 Paco de Arcos"
+            },
+            {
+                "Name": "Farmãcia Maldonado",
+                "google_link": "https://goo.gl/maps/9p8USAnCH9aLk3ZMA",
+                "lat": 39.4069948,
+                "lng": -9.1363272,
+                "description": "maldonado.png",
+                "email": "farmaciamaldonado@grupopraxis.pt",
+                "tel": 262831484,
+                "address": "Rua Tenente Sangreman Henriques no 12r/c 2500 - 253 Caldas da Rainha"
             }
         ];
 
@@ -294,6 +304,10 @@
                 toggleCircles(false);
                 infowindow.close();
 
+                // toggle labels
+                label58.setVisible(false);
+                label12.setVisible(false);
+
                 previousFeature = undefined;
             }
 
@@ -322,6 +336,9 @@
                 if(previousFeature.Name == pharmacy.Name) {
                     toggleCircles(false);
                     infowindow.close();
+
+                    label58.setVisible(false);
+                    label12.setVisible(false);
 
                     previousFeature = undefined;
                     return;
