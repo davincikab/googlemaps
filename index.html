@@ -196,6 +196,10 @@
                 if(feature.getProperty('ISO')) {
                     fillColor = '#FACB58';
                     zIndex = 1;
+                }else if(feature.getProperty('buffer')) {
+                    if(feature.getProperty('buffer') == 'inner') {
+                        fillColor = '#427793';
+                    }
                 }
 
                 return {
@@ -254,6 +258,9 @@
                 options
             );
 
+             // add property to the features
+             buffer_ten.properties.buffer = 'inner';
+
             // get the difference between the buffers
             var diffrence = turf.difference(buffer_twenty, buffer_ten);
 
@@ -295,6 +302,7 @@
         // add data to the map
         function loadBufferToMap(data) {
             // remove previous features;
+            console.log(data);
             if(features) {
                 for (var i = 0; i < features.length; i++) {
                         map.data.remove(features[i]);
