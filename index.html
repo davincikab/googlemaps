@@ -5,16 +5,20 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWKf4vdhuBiiZaJrHs3IVqRUSdwqQPnl4&callback=initMap"></script>
-    <link rel="stylesheet" type="text/css" href="./index.css" />
     
     <style>
-      .gm-style img {
-          max-width: none;
-          display: none;
+      body{
+          margin:0;
       }
 
-      map {
-        display: none;
+      #map {
+          height: 100vh;
+          width: 100vw;
+      }
+
+      #map img {
+          /* height:30px !important; */
+          /* width:30px !important; */
       }
     </style>
   </head>
@@ -107,32 +111,100 @@
                 "description": "veritas.png"
             }
         ];
-
+        
+        var map;
+        var infowindow;
         function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
                 center: {lat: 38.7052294, lng: -9.3032895}
-            });
+            }); 
 
-            var image = 'pharmacy-icon.png';
+            var style = {
+                strokeWeight: 0.1,
+                strokeColor: '#',
+                zIndex: 1,
+                fillColor: '#ea9500',
+                fillOpacity: 0.75,
+            };
+
+            // map data styles 
+            map.data.setStyle(style);
+
+            var image = {
+                url:'pharmacy-icon.png',
+                scaledSize: new google.maps.Size(50, 32.5), // scaled size
+                origin: new google.maps.Point(0,0), // origin
+                anchor: new google.maps.Point(0, 0) // anchor
+            }
 
             for (const pharmacy of pharmacies) {
                 // create a new marker
-                let maker = new google.maps.Marker({
+                let marker = new google.maps.Marker({
                     position: {lat: pharmacy.lat, lng: pharmacy.lng},
                     map: map,
-                    icon: image
+                    icon: image,
                 });
 
 
                 // add a event listener
-                marker.addEvent
+                marker.addListener('click', function() {
+                    console.log("Click");
+                    clickEventListener(pharmacy);
+                });
             }
         
-        function clickEventListener(e) {
+        // map.
+        
+        function clickEventListener(pharmacy) {
             // create a 20 km circle layer
-            
+            var buffer_twenty = turf.buffer(
+                turf.point([pharmacy.lng, pharmacy.lat]),
+                20
+            );
+
             // create a 10 km circle layer
+            var buffer_ten = turf.buffer(
+                turf.point([pharmacy.lng, pharmacy.lat]),
+                10
+            );
+
+            loadBufferToMap(
+                turf.featureCollection(
+                    [
+                        buffer_ten.features[0],
+                        buffer_twenty.features[0]
+                    ]
+                )
+            );
+
+
+            // create a feature collection
+            let contentString = "<div class='content'><img src='images/"+pharmacy.description+"'></div>";
+
+            // add an info window
+
+            if(!infowindow) {
+                infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    position:{lat: pharmacy.lat, lng: pharmacy.lng},
+                });
+
+                
+            } else{
+                infowindow.setContent(contentString);
+                infowindow.setPosition({lat: pharmacy.lat, lng: pharmacy.lng});
+            }
+
+            infowindow.open(map);
+            
+        }
+
+        // add data to the map
+        function loadBufferToMap(data) {
+            // remove the features
+            map.data.addGeoJson()
+            // add new features
         }
            
         }
