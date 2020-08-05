@@ -190,8 +190,8 @@
             }); 
 
             var style = {
-                strokeWeight: 0.1,
-                strokeColor: '#',
+                strokeWeight: 0.5,
+                strokeColor: '#fff',
                 zIndex: 1,
                 fillColor: '#FACB58',
                 fillOpacity: 0.75,
@@ -244,15 +244,15 @@
                 options
             );
 
+            // get the difference between the buffers
+            var diffrence = turf.difference(buffer_twenty, buffer_ten);
 
 
             loadBufferToMap(
-                turf.dissolve(
                     turf.featureCollection([
-                        buffer_twenty,
+                        diffrence,
                         buffer_ten
                     ])
-                )
             );
 
 
