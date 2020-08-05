@@ -191,15 +191,17 @@
 
             var mapStyle = function (feature) {
                 let fillColor = '#c67388';
+                let zIndex = 2
 
                 if(feature.getProperty('ISO')) {
                     fillColor = '#FACB58';
+                    zIndex = 1;
                 }
 
                 return {
                     strokeWeight: 0.5,
                     strokeColor: '#fff',
-                    zIndex: 1,
+                    zIndex: zIndex,
                     fillColor: fillColor,
                     fillOpacity: 0.75,
                 }
