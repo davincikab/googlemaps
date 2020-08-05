@@ -212,7 +212,7 @@
         var map;
         var infowindow;
         var features;
-        var circle12, circle58;
+        var circle12, circle58, previousFeature;
         var label12, label58;
 
         function initMap() {
@@ -290,10 +290,12 @@
         
         map.addListener('click', function(e) {
             console.log(e.latLng);
-            // if(circle12 && circle58) { 
-                // circle12.setVisible(false);
-                // circle58.setVisible(false);
-            // }
+            if(circle12 && circle58) { 
+                toggleCircles(false);
+                infowindow.close();
+
+                previousFeature = undefined;
+            }
 
         });
 
@@ -316,18 +318,33 @@
         });
         
         function clickEventListener(pharmacy) {
+            if(previousFeature) {
+                if(previousFeature.Name == pharmacy.Name) {
+                    toggleCircles(false);
+                    infowindow.close();
+
+                    previousFeature = undefined;
+                    return;
+                }else{
+                    toggleCircles(true);
+                }
+            } else {
+                if(circle12) {
+                    toggleCircles(true);
+                }
+                
+            }
 
             if(circle12 && circle58) {
-                // circle12.setVisible(true);
-                // circle58.setVisible(true);
-                circle12.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
+
                 circle58.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
+                circle12.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
 
                 label12.setPosition({lat: pharmacy.lat, lng: pharmacy.lng});
                 label58.setPosition({lat: pharmacy.lat, lng: pharmacy.lng});
             }else {
-                circle58 = new google.maps.Circle(getCircleOptions(58000, pharmacy,  '#c67388'));
-                circle12 = new google.maps.Circle(getCircleOptions(12000, pharmacy,'#7e98b7' ));
+                circle58 = new google.maps.Circle(getCircleOptions(58000, pharmacy, '#c67388', 2));
+                circle12 = new google.maps.Circle(getCircleOptions(12000, pharmacy, '#565454',3));
 
 
                 // add the labels
@@ -351,7 +368,7 @@
                     position: {lat: pharmacy.lat, lng: pharmacy.lng},
                     label: {
                         color:"#484849",
-                        text:"1 day delivery",
+                        text:"Same day delivery",
                         fontSize:"12px",
                         fontWeight:"800"
                     },
@@ -388,10 +405,10 @@
             }
 
             infowindow.open(map);
-            
+            previousFeature = pharmacy;
         }
 
-        function getCircleOptions(radius, pharmacy, color) {
+        function getCircleOptions(radius, pharmacy, color, zIndex) {
             return {
                 strokeColor: "#fff",
                 strokeOpacity: 0.8,
@@ -401,8 +418,14 @@
                 map: map,
                 center:{lat: pharmacy.lat, lng: pharmacy.lng},
                 radius: radius,
-                zIndex:2
+                zIndex:zIndex
             };
+        }
+
+        // toggle circles
+        function toggleCircles(state) {
+            circle12.setVisible(state);
+            circle58.setVisible(state);
         }
 
         // load working areas
