@@ -3,10 +3,11 @@
   <head>
     <title>Simple Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWKf4vdhuBiiZaJrHs3IVqRUSdwqQPnl4&callback=initMap"></script>
     
+    
+    <script src="https://cdn.jsdelivr.net/npm/measuretool-googlemaps-v3/lib/MeasureTool.min.js"></script>
     <style>
       body{
           margin:0;
@@ -211,6 +212,7 @@
         var map;
         var infowindow;
         var features;
+        var circle10, circle20;
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
@@ -219,10 +221,16 @@
                 center: {lat: 39.093993, lng: -9.143646}
             }); 
 
+            // measure tool
+            var measureTool = new MeasureTool(map, {
+                // unit: MeasureTool.UnitTypeId.IMPERIAL
+            });
+
             // add area names
             var iconOne = {
                 'url':'image.png'
             }
+
             areaNames.features.forEach(area => {
                 let position = area.geometry.coordinates;
                 new google.maps.Marker({
@@ -240,18 +248,9 @@
             });
 
             var mapStyle = function (feature) {
-                let fillColor = '#c67388';
-                let zIndex = 2
-
-                if(feature.getProperty('ISO')) {
-                    fillColor = '#FACB58';
-                    zIndex = 1;
-                }else if(feature.getProperty('buffer')) {
-                    if(feature.getProperty('buffer') == 'inner') {
-                        fillColor = '#427793';
-                    }
-                }
-
+                let fillColor = '#FACB58';
+                let zIndex = 1;
+                
                 return {
                     strokeWeight: 0.5,
                     strokeColor: '#fff',
@@ -292,40 +291,17 @@
         });
         
         function clickEventListener(pharmacy) {
-            // create a 20 km circle layer
-            var options = {
-                steps:10000,
-                units: "kilometers"
-            };
 
-            var buffer_twenty = turf.buffer(
-                turf.point([pharmacy.lng, pharmacy.lat]),
-                20.8,
-                options
-            );
+            if(circle10 && circle20) {
+                circle10.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
+                circle20.setCenter({lat: pharmacy.lat, lng: pharmacy.lng});
+            }else {
+                circle20 = new google.maps.Circle(getCircleOptions(20000, pharmacy,  '#c67388'));
+                circle10 = new google.maps.Circle(getCircleOptions(10000, pharmacy,'#427793' ));
 
-            // create a 10 km circle layer
-            var buffer_ten = turf.buffer(
-                turf.point([pharmacy.lng, pharmacy.lat]),
-                10.8,
-                options
-            );
+            }
 
-             // add property to the features
-             buffer_ten.properties.buffer = 'inner';
-
-            // get the difference between the buffers
-            var diffrence = turf.difference(buffer_twenty, buffer_ten);
-
-
-            loadBufferToMap(
-                    turf.featureCollection([
-                        diffrence,
-                        buffer_ten
-                    ])
-            );
-
-
+            
             // create a feature collection
             let contentString = "<div class='content'>"+
             "<h3 class='title'>"+pharmacy.Name+"</h3>" +
@@ -352,24 +328,26 @@
             
         }
 
-        // add data to the map
-        function loadBufferToMap(data) {
-            // remove previous features;
-            console.log(data);
-            if(features) {
-                for (var i = 0; i < features.length; i++) {
-                        map.data.remove(features[i]);
-                }
-            }
-
-            // add new features
-            features = map.data.addGeoJson(data, {idPropertyName:"buffer"});
+        function getCircleOptions(radius, pharmacy, color) {
+            return {
+                strokeColor: "#fff",
+                strokeOpacity: 0.8,
+                strokeWeight: 0.5,
+                fillColor: color,
+                fillOpacity: 0.65,
+                map: map,
+                center:{lat: pharmacy.lat, lng: pharmacy.lng},
+                radius: radius,
+                zIndex:2
+            };
         }
 
         // load working areas
         function loadMapShapes() {
             map.data.loadGeoJson('areas.geojson', { idPropertyName: 'areas'});
         }
+
+
 
         loadMapShapes();
            
