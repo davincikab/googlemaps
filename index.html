@@ -189,16 +189,24 @@
                 center: {lat: 38.7052294, lng: -9.3032895}
             }); 
 
-            var style = {
-                strokeWeight: 0.5,
-                strokeColor: '#fff',
-                zIndex: 1,
-                fillColor: '#FACB58',
-                fillOpacity: 0.75,
+            var mapStyle = function (feature) {
+                let fillColor = '#c67388';
+
+                if(feature.getProperty('ISO')) {
+                    fillColor = '#FACB58';
+                }
+
+                return {
+                    strokeWeight: 0.5,
+                    strokeColor: '#fff',
+                    zIndex: 1,
+                    fillColor: fillColor,
+                    fillOpacity: 0.75,
+                }
             };
 
             // map data styles 
-            map.data.setStyle(style);
+            map.data.setStyle(mapStyle);
 
             var image = {
                 url:'pharmacy-icon.png',
@@ -228,7 +236,7 @@
         function clickEventListener(pharmacy) {
             // create a 20 km circle layer
             var options = {
-                    steps:1000
+                    steps:10000
             };
 
             var buffer_twenty = turf.buffer(
@@ -294,8 +302,15 @@
             // add new features
             features = map.data.addGeoJson(data, {idPropertyName:"buffer"});
         }
-           
+
+        // load working areas
+        function loadMapShapes() {
+            map.data.loadGeoJson('areas.geojson', { idPropertyName: 'areas'});
         }
+
+        loadMapShapes();
+           
+    }
     </script>
   </body>
 </html>
